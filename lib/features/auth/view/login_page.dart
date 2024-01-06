@@ -47,6 +47,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     if (value == null || value.isEmpty) {
                       return 'Please enter some text';
                     }
+                    authViewModel.emailController.text = value;
                   },
                   obscureText: false,
                   hintText: 'Enter Email',
@@ -58,6 +59,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     if (value == null || value.isEmpty) {
                       return 'Please enter some text';
                     }
+                    authViewModel.passwordController.text = value;
                   },
                   controller: authViewModel.passwordController,
                   obscureText: true,
@@ -70,9 +72,15 @@ class _LoginScreenState extends State<LoginScreen> {
                 InkWell(
                   onTap: () {
                     if (loginKey.currentState!.validate()) {
-                      AuthRepository().login();
+                      AuthRepository().login(
+                          Login(
+                              email: authViewModel.emailController.text,
+                              password: authViewModel.passwordController.text),
+                          context);
                       print("success");
-                    }
+                      print("${authViewModel.emailController.text}");
+                      print("${authViewModel.passwordController.text}");
+                    } else {}
                   },
                   child: Container(
                     width: size.width,
