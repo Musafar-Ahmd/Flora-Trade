@@ -72,14 +72,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 InkWell(
                   onTap: () {
                     if (loginKey.currentState!.validate()) {
-                      AuthRepository().login(
-                          Login(
-                              email: authViewModel.emailController.text,
-                              password: authViewModel.passwordController.text),
-                          context);
-                      print("success");
-                      print("${authViewModel.emailController.text}");
-                      print("${authViewModel.passwordController.text}");
+                      authViewModel.login(
+                        context,
+                        Login(
+                            email: authViewModel.emailController.text,
+                            password: authViewModel.passwordController.text),
+                      );
                     } else {}
                   },
                   child: Container(
