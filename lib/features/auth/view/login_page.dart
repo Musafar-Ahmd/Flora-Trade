@@ -5,6 +5,7 @@ import 'package:untitled/features/auth/model/login_model.dart';
 import 'package:untitled/features/auth/repository/auth_repository.dart';
 import 'package:untitled/features/auth/view_model/auth_view_model.dart';
 import '../../../common/common_widgets.dart';
+import '../../main/bottom bar.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -78,7 +79,10 @@ class _LoginScreenState extends State<LoginScreen> {
                             email: authViewModel.emailController.text,
                             password: authViewModel.passwordController.text),
                       );
-                    } else {}
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => BottomNavBar()));
+                    } else {
+                      print("Login Failed");
+                    }
                   },
                   child: Container(
                     width: size.width,
