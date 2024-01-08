@@ -18,9 +18,9 @@ extension BottomNavItemsExtension on BottomNavItems {
       case BottomNavItems.home:
         return Icons.home_outlined;
       case BottomNavItems.cart:
-        return Icons.notifications;
+        return Icons.shopping_cart;
       case BottomNavItems.notifications:
-        return Icons.history;
+        return Icons.notifications;
       case BottomNavItems.profile:
         return Icons.person;
     }

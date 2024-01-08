@@ -10,6 +10,8 @@ class AuthViewModel extends ChangeNotifier {
   AuthRepository _authRepository = AuthRepository();
 
   Future login(BuildContext context, Login login) async {
-    await _authRepository.login(login, context).then((value) {});
+    await _authRepository.login(login, context).then((value) {
+
+    });
   }
 }

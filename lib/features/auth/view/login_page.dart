@@ -32,7 +32,7 @@ class _LoginScreenState extends State<LoginScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Image.asset('assets/images/signup.png'),
+                Image.asset('assets/images/signin.png'),
                 Text(
                   'Login',
                   style: TextStyle(
@@ -79,7 +79,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             email: authViewModel.emailController.text,
                             password: authViewModel.passwordController.text),
                       );
-                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => BottomNavBar()));
+                      Navigator.pushReplacement(context,
+                          MaterialPageRoute(builder: (_) => BottomNavBar()));
                     } else {
                       print("Login Failed");
                     }

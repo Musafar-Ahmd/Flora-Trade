@@ -16,14 +16,16 @@ class AuthRepository {
     if (response.statusCode == 200) {
       return Login.fromJson(jsonDecode(response.body));
     } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('Email or Password is incorrect'),
-        ),
-      );
+      // ScaffoldMessenger.of(context).showSnackBar(
+      //   SnackBar(
+      //     content: Text('Email or Password is incorrect'),
+      //   ),
+      // );
+      print("dara");
     }
   }
 
+  //TODO
   Future register() async {
     final url = Uri.parse('https://fakestoreapi.com/auth/login');
     final response = await http.post(
