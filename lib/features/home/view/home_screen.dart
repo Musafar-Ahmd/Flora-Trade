@@ -29,23 +29,27 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Center(
         child: GridView.builder(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2, // number of items in each row
-            mainAxisSpacing: 8.0, // spacing between rows
-            crossAxisSpacing: 8.0, // spacing between columns
+            crossAxisCount: 2,
+            mainAxisSpacing: 8.0,
+            crossAxisSpacing: 8.0,
           ),
-          padding: EdgeInsets.all(8.0), // padding around the grid
-          itemCount: productViewModel.productsResponse?.products?.length, // total number of items
+          padding: EdgeInsets.all(8.0),
+          itemCount: productViewModel.productsResponse?.products?.length,
           itemBuilder: (context, index) {
             final product = productViewModel.productsResponse?.products?[index];
             return InkWell(
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => ProductDetailsPage()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (_) => ProductDetailsPage(
+                              products: product,
+                            )));
               },
               child: Container(
                 //width: MediaQuery.of(context).size.width * 0.45,
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  // color: AppTheme.of(context).secondaryBackground,
                   boxShadow: [
                     BoxShadow(
                       blurRadius: 4,
@@ -87,10 +91,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(8, 4, 0, 0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(8, 4, 0, 0),
                               child: Text(
                                 "${product?.title}",
-                                style: TextStyle(fontSize: 12),
+                                style: TextStyle(fontSize: 12),overflow: TextOverflow.fade,maxLines: 2,
                               ),
                             ),
                           ],
@@ -102,7 +107,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(8, 4, 0, 0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(8, 4, 0, 0),
                               child: Text(
                                 '\$${product?.price}',
                                 style: TextStyle(fontSize: 12),

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/features/products/model/products_response_model.dart';
 
 class ProductDetailsPage extends StatelessWidget {
-  const ProductDetailsPage({super.key});
+  final Products? products;
+  const ProductDetailsPage({super.key, this.products});
 
   @override
   Widget build(BuildContext context) {
@@ -22,32 +24,32 @@ class ProductDetailsPage extends StatelessWidget {
         children: [
           // Product image
           Image.network(
-            "imageUrl",
+            "${products?.thumbnail}",
             height: MediaQuery.of(context).size.height / 1.8,
             fit: BoxFit.fill,
           ),
 
           // Product title
-          const Padding(
+           Padding(
             padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 10.0),
             child: Text(
-              'Digital Print Poly Cotton Goa Style Tropical Wear Mens Shirt, Half Sleeves, Magic Cotton',
+              '${products?.title}',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0),
             ),
           ),
 
           // Product description
-          const Padding(
+           Padding(
             padding: EdgeInsets.symmetric(horizontal: 8.0),
             child: Text(
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget risus lacus. Curabitur a turpis eros. Cras congue dui nec magna aliquet, quis vehicula libero egestas. Nullam at sollicitudin sem. Sed a augue dictum, tempor mi quis, feugiat neque. Aliquam egestas lectus orci, et rhoncus augue suscipit quis. Ut quis porta magna.'),
+                '${products?.description}'),
           ),
 
           // Product price
-          const Padding(
+           Padding(
             padding: EdgeInsets.all(16.0),
             child: Text(
-              '\$100',
+              '\$${products?.price}',
               style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w500),
             ),
           ),
