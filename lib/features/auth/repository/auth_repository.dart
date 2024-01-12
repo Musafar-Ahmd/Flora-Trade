@@ -5,7 +5,7 @@ import '../model/login_model.dart';
 
 class AuthRepository {
   Future login(Login login, BuildContext context) async {
-    final url = Uri.parse('https://reqres.in/api/register');
+    final url = Uri.parse('https://dummyjson.com/auth/login');
     final response = await http.post(
       url,
       headers: {
@@ -14,6 +14,7 @@ class AuthRepository {
       body: jsonEncode(login.toJson()),
     );
     if (response.statusCode == 200) {
+      print(response.body);
       return Login.fromJson(jsonDecode(response.body));
     } else {
       // ScaffoldMessenger.of(context).showSnackBar(

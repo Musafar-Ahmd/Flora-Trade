@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:untitled/features/products/repository/product_repository.dart';
+import 'package:untitled/features/products/model/products_response_model.dart';
 import 'package:untitled/features/products/view_model/products_view_model.dart';
-
 import '../../products/view/product_detail.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -25,7 +24,11 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final productViewModel = Provider.of<ProductsViewModel>(context);
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.white,
+        title: Text("Products",style: TextStyle(color: Colors.black),),
+      ),
       body: Center(
         child: GridView.builder(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -47,7 +50,6 @@ class _HomeScreenState extends State<HomeScreen> {
                             )));
               },
               child: Container(
-                //width: MediaQuery.of(context).size.width * 0.45,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   boxShadow: [
