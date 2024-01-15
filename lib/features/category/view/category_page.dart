@@ -8,7 +8,7 @@ class CategoryPage extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: TextButton(onPressed: () {
-          CategoryRepository().getCategory(context);
+          // CategoryRepository().getCategory(context);
         }, child: Text("data")),
       ),
     )
